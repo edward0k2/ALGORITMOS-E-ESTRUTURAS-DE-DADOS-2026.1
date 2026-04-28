@@ -28,4 +28,9 @@ Projeto de visualização de algoritmos de ordenação (Bubble Sort e Merge Sort
    npm run dev
    ```
 
-Desenvolvido por **Jesus Eduardo Pereira**.
+Desenvolvido por:
+- Juciana Maria Diniz
+- Deilson Pereira Alves
+- Mathias Ferreira do Nascimento e Silva
+- Rahissa Beatriz Alencar Almeida
+- Jesus Eduardo Pereira Lima

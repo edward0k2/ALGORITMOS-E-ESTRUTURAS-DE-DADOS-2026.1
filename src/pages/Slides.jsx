@@ -124,7 +124,14 @@ export default function Slides() {
               <h1 className="text-4xl font-extrabold text-white leading-tight">Algoritmos de<br />Ordenacao</h1>
               <p className="text-blue-300 text-lg">Bubble Sort e Merge Sort</p>
               <div className="h-px w-24 bg-blue-700" />
-              <p className="text-slate-400 text-sm">Disciplina: Algoritmos e Estrutura de Dados — UPE</p>
+              <div className="space-y-1">
+                <p className="text-slate-400 text-xs">Disciplina: Algoritmos e Estrutura de Dados — UPE</p>
+                <p className="text-slate-500 text-[10px] uppercase tracking-widest">Integrantes</p>
+                <p className="text-slate-300 text-[11px] leading-tight">
+                  Jesus Eduardo • Juciana Maria • Deilson Pereira<br />
+                  Mathias Ferreira • Rahissa Beatriz
+                </p>
+              </div>
             </div>
           )}
 

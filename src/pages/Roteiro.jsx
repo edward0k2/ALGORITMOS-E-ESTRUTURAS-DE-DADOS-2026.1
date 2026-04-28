@@ -98,6 +98,9 @@ export default function Roteiro() {
             <ArrowLeft size={16} /> Voltar
           </Link>
           <h1 className="text-lg font-bold text-blue-300">Roteiro — Algoritmos UPE</h1>
+          <div className="hidden sm:block text-[10px] text-slate-500 max-w-[200px] leading-tight">
+            Equipe: Jesus, Juciana, Deilson, Mathias, Rahissa
+          </div>
           <div className="flex items-center gap-2 text-sm text-slate-400">
             <CheckSquare size={14} />
             {done}/{total}
