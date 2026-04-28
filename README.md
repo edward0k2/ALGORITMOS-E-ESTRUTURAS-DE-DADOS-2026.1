@@ -18,9 +18,9 @@ Projeto de visualização de algoritmos de ordenação (Bubble Sort e Merge Sort
 
 2. Configure o arquivo `.env`:
    ```env
-   VITE_BASE44_APP_ID=dummy-id
-   VITE_BASE44_FUNCTIONS_VERSION=v1
-   VITE_BASE44_APP_BASE_URL=http://localhost:5173
+   VITE_UPE_APP_ID=dummy-id
+   VITE_UPE_FUNCTIONS_VERSION=v1
+   VITE_UPE_APP_BASE_URL=http://localhost:5173
    ```
 
 3. Inicie o servidor de desenvolvimento:
