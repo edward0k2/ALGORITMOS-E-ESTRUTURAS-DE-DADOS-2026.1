@@ -128,7 +128,7 @@ export default function Slides() {
                 <p className="text-slate-400 text-xs">Disciplina: Algoritmos e Estrutura de Dados — UPE</p>
                 <p className="text-slate-500 text-[10px] uppercase tracking-widest">Integrantes</p>
                 <p className="text-slate-300 text-[11px] leading-tight">
-                  Jesus Eduardo • Juciana Maria • Deilson Pereira<br />
+                  Deilson Pereira • Jesus Eduardo • Juciana Maria<br />
                   Mathias Ferreira • Rahissa Beatriz
                 </p>
               </div>

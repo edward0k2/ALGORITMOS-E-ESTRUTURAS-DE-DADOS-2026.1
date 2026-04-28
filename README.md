@@ -29,8 +29,8 @@ Projeto de visualização de algoritmos de ordenação (Bubble Sort e Merge Sort
    ```
 
 Desenvolvido por:
-- Juciana Maria Diniz
 - Deilson Pereira Alves
+- Jesus Eduardo Pereira Lima
+- Juciana Maria Diniz
 - Mathias Ferreira do Nascimento e Silva
 - Rahissa Beatriz Alencar Almeida
-- Jesus Eduardo Pereira Lima

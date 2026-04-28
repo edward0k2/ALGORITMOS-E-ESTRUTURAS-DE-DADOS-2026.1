@@ -18,7 +18,7 @@ export default function Home() {
             <h1 className="text-xl sm:text-2xl font-bold text-blue-300 tracking-tight">
               Algoritmos e Estrutura de Dados UPE
             </h1>
-            <p className="text-xs text-slate-400">Seminario Interativo — Grupo: Jesus Eduardo, Juciana Maria, Deilson Pereira, Mathias Ferreira, Rahissa Beatriz</p>
+            <p className="text-xs text-slate-400">Seminario Interativo — Equipe: Deilson Pereira, Jesus Eduardo, Juciana Maria, Mathias Ferreira, Rahissa Beatriz</p>
           </div>
           <div className="flex gap-2 flex-wrap justify-end">
             <Link to="/slides" className="text-xs bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-300 px-3 py-1.5 rounded-full transition-colors">Slides</Link>
@@ -150,7 +150,7 @@ print(merge_sort(numeros))
 
       <footer className="py-8 text-slate-600 text-xs border-t border-slate-800 mt-10">
         <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p>© 2026 Algoritmos e Estrutura de Dados UPE — Grupo: Jesus, Juciana, Deilson, Mathias, Rahissa</p>
+          <p>© 2026 Algoritmos e Estrutura de Dados UPE — Equipe: Deilson, Jesus, Juciana, Mathias, Rahissa</p>
           <div className="flex items-center gap-3">
             <a 
               href="https://www.linkedin.com/in/jesus-eduardo-pereira/" 
