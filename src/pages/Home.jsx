@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import CustomVisualizer from "../components/CustomVisualizer";
 import BubbleSortVisualizer from "../components/BubbleSortVisualizer";
 import MergeSortVisualizer from "../components/MergeSortVisualizer";
+import SelectionSortVisualizer from "../components/SelectionSortVisualizer";
+import QuickSortVisualizer from "../components/QuickSortVisualizer";
 import AlgorithmInfo from "../components/AlgorithmInfo";
 import ComparisonTable from "../components/ComparisonTable";
 import { Linkedin, Github } from "lucide-react";
@@ -55,6 +57,26 @@ export default function Home() {
             }`}
           >
             Merge Sort
+          </button>
+          <button
+            onClick={() => setActiveTab("selection")}
+            className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-all ${
+              activeTab === "selection"
+                ? "bg-orange-600 text-white shadow-lg shadow-orange-900"
+                : "bg-slate-800 text-slate-400 hover:bg-slate-700"
+            }`}
+          >
+            Selection Sort
+          </button>
+          <button
+            onClick={() => setActiveTab("quick")}
+            className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-all ${
+              activeTab === "quick"
+                ? "bg-green-600 text-white shadow-lg shadow-green-900"
+                : "bg-slate-800 text-slate-400 hover:bg-slate-700"
+            }`}
+          >
+            Quick Sort
           </button>
           <button
             onClick={() => setActiveTab("compare")}
@@ -141,6 +163,60 @@ print(merge_sort(numeros))
 # Saida: [11, 12, 22, 25, 34, 64, 90]`}
             />
             <MergeSortVisualizer />
+          </div>
+        )}
+
+        {activeTab === "selection" && (
+          <div className="space-y-8">
+            <AlgorithmInfo
+              name="Selection Sort"
+              type="Simples"
+              color="orange"
+              description="O Selection Sort divide a lista em duas partes: a parte ordenada e a parte não ordenada. Ele busca repetidamente o menor elemento da parte não ordenada e o move para o início."
+              bestCase="O(n²)"
+              worstCase="O(n²)"
+              whenToUse="Listas pequenas onde a simplicidade é prioridade. Tem o benefício de minimizar o número de trocas."
+              code={`def selection_sort(lista):
+    n = len(lista)
+    for i in range(n):
+        min_idx = i
+        for j in range(i + 1, n):
+            if lista[j] < lista[min_idx]:
+                min_idx = j
+        # Troca o menor encontrado com o primeiro elemento nao ordenado
+        lista[i], lista[min_idx] = lista[min_idx], lista[i]
+    return lista
+
+numeros = [64, 34, 25, 12, 22, 11, 90]
+print(selection_sort(numeros))`}
+            />
+            <SelectionSortVisualizer />
+          </div>
+        )}
+
+        {activeTab === "quick" && (
+          <div className="space-y-8">
+            <AlgorithmInfo
+              name="Quick Sort"
+              type="Eficiente"
+              color="green"
+              description="O Quick Sort escolhe um 'pivô' e particiona a lista ao redor dele, movendo elementos menores para a esquerda e maiores para a direita. É extremamente rápido na prática."
+              bestCase="O(n log n)"
+              worstCase="O(n²)"
+              whenToUse="Algoritmo padrão para uso geral em sistemas de alto desempenho. Extremamente eficiente em cache."
+              code={`def quick_sort(lista):
+    if len(lista) <= 1:
+        return lista
+    pivo = lista[len(lista) // 2]
+    esq = [x for x in lista if x < pivo]
+    meio = [x for x in lista if x == pivo]
+    dir = [x for x in lista if x > pivo]
+    return quick_sort(esq) + meio + quick_sort(dir)
+
+numeros = [64, 34, 25, 12, 22, 11, 90]
+print(quick_sort(numeros))`}
+            />
+            <QuickSortVisualizer />
           </div>
         )}
 

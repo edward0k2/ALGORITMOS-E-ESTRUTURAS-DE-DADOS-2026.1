@@ -7,8 +7,11 @@ export default function AlgorithmInfo({ name, type, color, description, bestCase
   const colorMap = {
     blue: { badge: "bg-blue-900/50 text-blue-300 border-blue-700", border: "border-blue-700/40", accent: "text-blue-400" },
     purple: { badge: "bg-purple-900/50 text-purple-300 border-purple-700", border: "border-purple-700/40", accent: "text-purple-400" },
+    green: { badge: "bg-green-900/50 text-green-300 border-green-700", border: "border-green-700/40", accent: "text-green-400" },
+    yellow: { badge: "bg-yellow-900/50 text-yellow-300 border-yellow-700", border: "border-yellow-700/40", accent: "text-yellow-400" },
+    orange: { badge: "bg-orange-900/50 text-orange-300 border-orange-700", border: "border-orange-700/40", accent: "text-orange-400" },
   };
-  const c = colorMap[color];
+  const c = colorMap[color] || colorMap.blue;
 
   return (
     <div className={`bg-slate-800/50 border ${c.border} rounded-2xl p-6 space-y-4`}>
