@@ -11,8 +11,8 @@ const slides = [
   {
     id: 2,
     type: "intro",
-    title: "O que sao Algoritmos de Ordenacao?",
-    body: "Algoritmos de ordenacao reorganizam os elementos de uma lista em uma ordem especifica (crescente ou decrescente). Sao fundamentais na Computacao e usados em buscas, bancos de dados, jogos e muito mais.",
+    title: "O que são Algoritmos de Ordenação?",
+    body: "Algoritmos de ordenação reorganizam os elementos de uma lista em uma ordem específica. Eles são a base para sistemas de busca, bancos de dados e otimização de performance em larga escala.",
     icon: "📚",
   },
   {
@@ -21,70 +21,72 @@ const slides = [
     name: "Bubble Sort",
     tag: "Algoritmo Simples",
     tagColor: "blue",
-    description: "Percorre a lista repetidamente, comparando e trocando elementos vizinhos fora de ordem.",
-    steps: ["Compara lista[j] e lista[j+1]", "Se lista[j] > lista[j+1], troca os dois", "Repete ate nao haver mais trocas", "Elementos maiores sobem ao final"],
+    description: "O algoritmo mais intuitivo. Percorre a lista repetidamente, comparando e trocando elementos vizinhos fora de ordem.",
+    steps: ["Compara elementos adjacentes", "Troca se estiverem fora de ordem", "O maior elemento 'flutua' até o fim", "Repete até a lista estar ordenada"],
     complexity: { best: "O(n)", worst: "O(n²)" },
     icon: "🫧",
   },
   {
     id: 4,
-    type: "code",
-    name: "Bubble Sort — Codigo Python",
-    tagColor: "blue",
-    code: `def bubble_sort(lista):
-    n = len(lista)
-    for i in range(n):
-        for j in range(0, n - i - 1):
-            if lista[j] > lista[j + 1]:
-                lista[j], lista[j+1] = lista[j+1], lista[j]
-    return lista
-
-# Exemplo
-numeros = [64, 34, 25, 12, 22, 11, 90]
-print(bubble_sort(numeros))
-# Saida: [11, 12, 22, 25, 34, 64, 90]`,
+    type: "algorithm",
+    name: "Selection Sort",
+    tag: "Algoritmo Simples",
+    tagColor: "orange",
+    description: "Mantém uma parte ordenada e outra não. Seleciona sistematicamente o menor elemento da parte não ordenada e o move para o início.",
+    steps: ["Encontra o menor elemento da lista", "Troca com o primeiro elemento não ordenado", "Avança a fronteira da parte ordenada", "Minimiza o número total de trocas"],
+    complexity: { best: "O(n²)", worst: "O(n²)" },
+    icon: "🔍",
   },
   {
     id: 5,
     type: "algorithm",
+    name: "Quick Sort",
+    tag: "Eficiência Máxima",
+    tagColor: "green",
+    description: "Usa um 'Pivô' para dividir a lista. É um dos algoritmos mais rápidos na prática e usa a estratégia de dividir e conquistar.",
+    steps: ["Escolhe um elemento como Pivô", "Particiona a lista ao redor do pivô", "Recursão para os lados esquerdo e direito", "Extremamente eficiente em cache"],
+    complexity: { best: "O(n log n)", worst: "O(n²)" },
+    icon: "⚡",
+  },
+  {
+    id: 6,
+    type: "algorithm",
     name: "Merge Sort",
-    tag: "Algoritmo Eficiente",
+    tag: "Eficiente e Estável",
     tagColor: "purple",
-    description: "Usa dividir e conquistar: divide a lista ao meio recursivamente, depois mescla as partes em ordem.",
-    steps: ["Divide a lista ao meio", "Chama merge_sort em cada metade", "Mescla as duas metades ordenadas", "Garantia de O(n log n) sempre"],
+    description: "Divide a lista ao meio recursivamente até chegar em elementos únicos, depois os mescla (merge) de forma ordenada.",
+    steps: ["Divide a lista sucessivamente ao meio", "Ordena as sublistas de 1 elemento", "Intercala (Merge) as sublistas em ordem", "Garante performance estável"],
     complexity: { best: "O(n log n)", worst: "O(n log n)" },
     icon: "🔀",
   },
   {
-    id: 6,
-    type: "code",
-    name: "Merge Sort — Codigo Python",
-    tagColor: "purple",
-    code: `def merge_sort(lista):
-    if len(lista) <= 1:
-        return lista
-    meio = len(lista) // 2
-    esq = merge_sort(lista[:meio])
-    dir = merge_sort(lista[meio:])
-    return merge(esq, dir)
-
-def merge(esq, dir):
-    resultado, i, j = [], 0, 0
-    while i < len(esq) and j < len(dir):
-        if esq[i] <= dir[j]:
-            resultado.append(esq[i]); i += 1
-        else:
-            resultado.append(dir[j]); j += 1
-    resultado.extend(esq[i:])
-    resultado.extend(dir[j:])
-    return resultado`,
-  },
-  {
     id: 7,
-    type: "comparison",
+    type: "code",
+    name: "Selection & Quick Sort — Python",
+    tagColor: "green",
+    code: `# Selection Sort
+def selection_sort(arr):
+    for i in range(len(arr)):
+        min_idx = i
+        for j in range(i+1, len(arr)):
+            if arr[j] < arr[min_idx]: min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+
+# Quick Sort (Recursivo)
+def quick_sort(arr):
+    if len(arr) <= 1: return arr
+    pivo = arr[len(arr) // 2]
+    esq = [x for x in arr if x < pivo]
+    meio = [x for x in arr if x == pivo]
+    dir = [x for x in arr if x > pivo]
+    return quick_sort(esq) + meio + quick_sort(dir)`,
   },
   {
     id: 8,
+    type: "comparison",
+  },
+  {
+    id: 9,
     type: "conclusion",
   },
 ];
@@ -122,7 +124,7 @@ export default function Slides() {
             <div className="h-full min-h-96 flex flex-col items-center justify-center text-center p-10 bg-gradient-to-br from-blue-950 to-slate-900 space-y-6">
               <div className="text-6xl">🔢</div>
               <h1 className="text-4xl font-extrabold text-white leading-tight">Algoritmos de<br />Ordenacao</h1>
-              <p className="text-blue-300 text-lg">Bubble Sort e Merge Sort</p>
+              <p className="text-blue-300 text-sm">Bubble • Selection • Quick • Merge</p>
               <div className="h-px w-24 bg-blue-700" />
               <div className="space-y-1">
                 <p className="text-slate-400 text-xs">Disciplina: Algoritmos e Estrutura de Dados — UPE</p>
@@ -141,8 +143,10 @@ export default function Slides() {
               <h2 className="text-3xl font-bold">{slide.title}</h2>
               <p className="text-slate-300 text-lg leading-relaxed">{slide.body}</p>
               <div className="flex gap-4 flex-wrap mt-4">
-                <span className="px-4 py-2 bg-blue-900/50 text-blue-300 rounded-full text-sm border border-blue-700">Bubble Sort</span>
-                <span className="px-4 py-2 bg-purple-900/50 text-purple-300 rounded-full text-sm border border-purple-700">Merge Sort</span>
+                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-[10px] border border-blue-700">Bubble</span>
+                <span className="px-3 py-1 bg-orange-900/50 text-orange-300 rounded-full text-[10px] border border-orange-700">Selection</span>
+                <span className="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-[10px] border border-green-700">Quick</span>
+                <span className="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-[10px] border border-purple-700">Merge</span>
               </div>
             </div>
           )}
@@ -152,7 +156,12 @@ export default function Slides() {
               <div className="flex items-center gap-3">
                 <span className="text-4xl">{slide.icon}</span>
                 <div>
-                  <span className={`text-xs px-3 py-1 rounded-full ${slide.tagColor === "blue" ? "bg-blue-900 text-blue-300" : "bg-purple-900 text-purple-300"}`}>{slide.tag}</span>
+                  <span className={`text-xs px-3 py-1 rounded-full ${
+                    slide.tagColor === "blue" ? "bg-blue-900 text-blue-300" : 
+                    slide.tagColor === "orange" ? "bg-orange-900 text-orange-300" : 
+                    slide.tagColor === "green" ? "bg-green-900 text-green-300" : 
+                    "bg-purple-900 text-purple-300"
+                  }`}>{slide.tag}</span>
                   <h2 className="text-2xl font-bold mt-1">{slide.name}</h2>
                 </div>
               </div>
@@ -160,7 +169,12 @@ export default function Slides() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {slide.steps.map((s, i) => (
                   <div key={i} className="flex items-center gap-3 bg-slate-800/60 rounded-xl p-3">
-                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${slide.tagColor === "blue" ? "bg-blue-700" : "bg-purple-700"}`}>{i + 1}</span>
+                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
+                      slide.tagColor === "blue" ? "bg-blue-700" : 
+                      slide.tagColor === "orange" ? "bg-orange-700" : 
+                      slide.tagColor === "green" ? "bg-green-700" : 
+                      "bg-purple-700"
+                    }`}>{i + 1}</span>
                     <span className="text-sm text-slate-300">{s}</span>
                   </div>
                 ))}
@@ -190,24 +204,27 @@ export default function Slides() {
           {slide.type === "comparison" && (
             <div className="p-10 flex flex-col justify-center min-h-96 space-y-5">
               <h2 className="text-2xl font-bold">Comparacao</h2>
-              <table className="w-full text-sm">
+              <table className="w-full text-[10px] sm:text-xs">
                 <thead>
                   <tr className="border-b border-slate-700">
                     <th className="text-left py-2 text-slate-400">Criterio</th>
-                    <th className="text-center py-2 text-blue-400">Bubble Sort</th>
-                    <th className="text-center py-2 text-purple-400">Merge Sort</th>
+                    <th className="text-center py-2 text-blue-400">Bubble</th>
+                    <th className="text-center py-2 text-orange-400">Selection</th>
+                    <th className="text-center py-2 text-green-400">Quick</th>
+                    <th className="text-center py-2 text-purple-400">Merge</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800">
                   {[
-                    ["Pior Caso", "O(n²)", "O(n log n)"],
-                    ["Espaco extra", "O(1)", "O(n)"],
-                    ["Estavel", "Sim", "Sim"],
-                    ["Listas grandes", "Lento", "Ideal"],
-                  ].map(([c, b, m]) => (
+                    ["Pior Caso", "O(n²)", "O(n²)", "O(n²)", "O(n log n)"],
+                    ["Espaco", "O(1)", "O(1)", "O(log n)", "O(n)"],
+                    ["Estavel", "Sim", "Não", "Não", "Sim"],
+                  ].map(([c, b, s, q, m]) => (
                     <tr key={c}>
                       <td className="py-2.5 text-slate-300">{c}</td>
                       <td className="py-2.5 text-center font-mono text-blue-300">{b}</td>
+                      <td className="py-2.5 text-center font-mono text-orange-300">{s}</td>
+                      <td className="py-2.5 text-center font-mono text-green-300">{q}</td>
                       <td className="py-2.5 text-center font-mono text-purple-300">{m}</td>
                     </tr>
                   ))}
@@ -220,10 +237,10 @@ export default function Slides() {
             <div className="p-10 flex flex-col items-center justify-center min-h-96 text-center space-y-6 bg-gradient-to-br from-slate-900 to-blue-950">
               <div className="text-5xl">✅</div>
               <h2 className="text-3xl font-bold">Conclusao</h2>
-              <p className="text-slate-300 max-w-lg leading-relaxed">
-                O <span className="text-blue-300 font-semibold">Bubble Sort</span> e simples e didatico.
-                O <span className="text-purple-300 font-semibold">Merge Sort</span> e eficiente e escalavel.
-                Escolha o algoritmo certo para cada situacao!
+              <p className="text-slate-300 max-w-lg text-sm leading-relaxed">
+                Aprendemos que cada algoritmo tem seu propósito: do <span className="text-blue-300">Bubble</span> para educação ao <span className="text-green-300">Quick Sort</span> para performance bruta. 
+                O <span className="text-purple-300">Merge</span> nos garante estabilidade, e o <span className="text-orange-300">Selection</span> minimiza trocas. 
+                Escolher o algoritmo certo é a marca de um bom desenvolvedor!
               </p>
               <p className="text-slate-500 text-sm">Obrigado pela atencao!</p>
             </div>
