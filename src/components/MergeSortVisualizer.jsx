@@ -88,7 +88,7 @@ export default function MergeSortVisualizer() {
             onChange={e => setSpeed(Number(e.target.value))}
             className="bg-slate-700 text-white text-xs rounded px-2 py-1"
           >
-            <option value={700}>Lento</option>
+            <option value={1500}>Lento</option>
             <option value={300}>Normal</option>
             <option value={100}>Rápido</option>
           </select>

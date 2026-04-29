@@ -97,7 +97,7 @@ export default function QuickSortVisualizer() {
             onChange={e => setSpeed(Number(e.target.value))}
             className="bg-slate-700 text-white text-xs rounded px-2 py-1"
           >
-            <option value={400}>Lento</option>
+            <option value={1200}>Lento</option>
             <option value={150}>Normal</option>
             <option value={50}>Rápido</option>
           </select>

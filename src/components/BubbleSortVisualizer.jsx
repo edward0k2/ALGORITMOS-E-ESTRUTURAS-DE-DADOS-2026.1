@@ -92,7 +92,7 @@ export default function BubbleSortVisualizer() {
             onChange={e => setSpeed(Number(e.target.value))}
             className="bg-slate-700 text-white text-xs rounded px-2 py-1"
           >
-            <option value={300}>Lento</option>
+            <option value={1000}>Lento</option>
             <option value={100}>Normal</option>
             <option value={50}>Rápido</option>
           </select>
